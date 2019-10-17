@@ -34,7 +34,7 @@ def main():
 
     upstream_hash = (
         subprocess.run(
-            ["git", "ls-remote", str(sys.argv[0]), "HEAD"],
+            ["git", "ls-remote", str(sys.argv[1]), "HEAD"],
             capture_output=True,
             cwd=path,
         )
