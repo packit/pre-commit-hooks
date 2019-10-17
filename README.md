@@ -4,7 +4,7 @@ Our repo for managing pre-commit hooks
 ### Our hooks
 
 - `check-rebase` - Check if your branch is up to date with the upstream.
-    - Specify the url of the upstream repo in `args: ['git://github...']`.
+    - Specify the url of the upstream repo in `args: [git://github...]`.
 
 
 ### Using check-rebase with pre-commit

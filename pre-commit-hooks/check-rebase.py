@@ -34,7 +34,9 @@ def main():
 
     upstream_hash = (
         subprocess.run(
-            ["git", "ls-remote", sys.argv[0], "HEAD"], capture_output=True, cwd=path
+            ["git", "ls-remote", str(sys.argv[0]), "HEAD"],
+            capture_output=True,
+            cwd=path,
         )
         .stdout.decode()
         .split()[0]
