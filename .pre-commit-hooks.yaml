@@ -1,0 +1,7 @@
+-   id: check-rebase
+    name: Check if rebase is needed
+    description: Check if your branch is up to date with the upstream.
+    entry: ./pre-commit-hooks/check-rebase.py
+    language: script
+    always_run: true
+    args: [upstream_url]
