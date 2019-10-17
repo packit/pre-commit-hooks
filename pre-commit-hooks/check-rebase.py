@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os
+from pathlib import Path
 import subprocess
 import sys
 
@@ -11,7 +11,7 @@ WARNING_MSG = (
 
 
 def main():
-    path = os.path.dirname(os.path.abspath(__file__))
+    path = str(Path.cwd().absolute())
 
     last_commit_subject = subprocess.run(
         ["git", "log", "--format=%s", "-1"], capture_output=True, cwd=path
