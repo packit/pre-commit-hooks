@@ -3,10 +3,15 @@ from pathlib import Path
 import subprocess
 import sys
 
-WARNING_MSG = (
+WARNING_MSG_1 = (
     "Your branch is not up to date with upstream/master. \n"
     "SHA of the last commit of upstream/master: {upstream}\n"
-    "Please, rebase!"
+    "Please, rebase! \n"
+)
+
+WARNING_MSG_2 = (
+    "Zuul merged the master, which means your branch is not up to date with upstream/master.\n"
+    "Please, rebase! \n"
 )
 
 
@@ -19,7 +24,7 @@ def main():
     print(f"Last commit subject: {last_commit_subject}")
 
     if "Merge commit" in last_commit_subject:
-        print("Zuul merged the master -- rebase is needed.")
+        print(WARNING_MSG_2)
         return 2
 
     local_hashes = (
@@ -46,7 +51,7 @@ def main():
 
     if upstream_hash in local_hashes:
         return 0
-    print(WARNING_MSG.format(upstream=upstream_hash))
+    print(WARNING_MSG_1.format(upstream=upstream_hash))
     return 1
 
 
