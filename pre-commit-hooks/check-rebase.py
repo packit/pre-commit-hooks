@@ -19,7 +19,7 @@ def main():
     path = str(Path.cwd().absolute())
 
     last_commit_subject = subprocess.run(
-        ["git", "log", "--format=%s", "-1"], capture_output=True, cwd=path
+        ["git", "log", "--format=%s", "-1"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=path
     ).stdout.decode()
     print(f"Last commit subject: {last_commit_subject}")
 
@@ -30,7 +30,8 @@ def main():
     local_hashes = (
         subprocess.run(
             ["git", "log", "--max-count=100", "--format=%H"],
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             cwd=path,
         )
         .stdout.decode()
@@ -40,14 +41,15 @@ def main():
     upstream_hash = (
         subprocess.run(
             ["git", "ls-remote", str(sys.argv[1]), "HEAD"],
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             cwd=path,
         )
         .stdout.decode()
         .split()[0]
     )
 
-    print(f"Upstream hash: {upstream_hash}\n" f"Local hashes: {local_hashes}\n")
+    print(f"Upstream hash: {upstream_hash}\n" f"Local hashes: {local_hashes[:3]}\n")
 
     if upstream_hash in local_hashes:
         return 0
