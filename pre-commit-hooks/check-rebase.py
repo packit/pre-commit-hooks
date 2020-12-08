@@ -19,7 +19,10 @@ def main():
     path = str(Path.cwd().absolute())
 
     last_commit_subject = subprocess.run(
-        ["git", "log", "--format=%s", "-1"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=path
+        ["git", "log", "--format=%s", "-1"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        cwd=path,
     ).stdout.decode()
     print(f"Last commit subject: {last_commit_subject}")
 
