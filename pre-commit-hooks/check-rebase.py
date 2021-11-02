@@ -53,7 +53,7 @@ def main():
         .split()[0]
     )
 
-    print(f"Upstream hash: {upstream_hash}\n" f"Local hashes: {local_hashes[:3]}\n")
+    print(f"Upstream hash: {upstream_hash}\nLocal hashes: {local_hashes[:3]}\n")
 
     if upstream_hash in local_hashes:
         return 0
