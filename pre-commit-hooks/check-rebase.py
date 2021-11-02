@@ -42,9 +42,18 @@ def main():
         .split()
     )
 
+    try:
+        remote_url = sys.argv[1]
+    except IndexError:
+        print(
+            "We expected the first argument to be the remote URL for this repository. "
+            f"Instead we have received these arguments:\n{sys.argv}"
+        )
+        return 3
+
     upstream_hash = (
         subprocess.run(
-            ["git", "ls-remote", str(sys.argv[1]), "HEAD"],
+            ["git", "ls-remote", remote_url, "HEAD"],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             cwd=path,
