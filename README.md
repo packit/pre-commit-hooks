@@ -11,7 +11,7 @@ Our repo for managing pre-commit hooks
 
 Add this to your `.pre-commit-config.yaml`
 
-    -   repo: https://github.com/packit-service/pre-commit-hooks
+    -   repo: https://github.com/packit/pre-commit-hooks
         rev: the revision or tag to clone at
         hooks:
         -   id: check-rebase
