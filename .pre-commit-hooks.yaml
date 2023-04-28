@@ -5,3 +5,9 @@
     language: script
     always_run: true
     args: [upstream_url]
+-   id: validate-config
+    name: Validate package config
+    description: Check for missing values and incorrect types
+    entry: quay.io/packit/packit:latest packit -d validate-config
+    language: docker_image
+    files: ^\.?packit.ya?ml$
