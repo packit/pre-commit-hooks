@@ -5,7 +5,15 @@
     language: script
     always_run: true
     args: [upstream_url]
+
 -   id: validate-config
+    name: Validate package config
+    description: Check for missing values and incorrect types
+    entry: ./pre-commit-hooks/validate-config.sh
+    language: script
+    files: ^\.?packit.ya?ml$
+
+-   id: validate-config-in-container
     name: Validate package config
     description: Check for missing values and incorrect types
     entry: quay.io/packit/packit:latest packit -d validate-config
