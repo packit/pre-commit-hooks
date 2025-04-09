@@ -16,6 +16,6 @@
 -   id: validate-config-in-container
     name: Validate package config
     description: Check for missing values and incorrect types
-    entry: quay.io/packit/packit:latest packit -d validate-config
+    entry: quay.io/packit/packit:latest packit -d config validate
     language: docker_image
     files: ^\.?packit.ya?ml$
