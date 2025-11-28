@@ -18,7 +18,7 @@ Our repo for managing pre-commit hooks
 Add this to your `.pre-commit-config.yaml`
 
     -   repo: https://github.com/packit/pre-commit-hooks
-        rev: v1.2.0
+        rev: v1.3.0
         hooks:
           - id: check-rebase
             args: [upstream_url]
@@ -28,13 +28,13 @@ Add this to your `.pre-commit-config.yaml`
 Add this to your `.pre-commit-config.yaml`
 
     -   repo: https://github.com/packit/pre-commit-hooks
-        rev: v1.2.0
+        rev: v1.3.0
         hooks:
           - id: validate-config
 
 or
 
     -   repo: https://github.com/packit/pre-commit-hooks
-        rev: v1.2.0
+        rev: v1.3.0
         hooks:
           - id: validate-config-in-container
